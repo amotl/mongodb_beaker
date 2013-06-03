@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2009-2011 Brendan W. McAdams <bwmcadams@evilmonkeylabs.com>
 #
+import os
 
 try:
     from setuptools import setup, find_packages
@@ -10,12 +11,15 @@ except ImportError:
     use_setuptools()
     from setuptools import setup, find_packages
 
+here = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(here, 'README.rst')).read()
+
 setup(
     name = 'mongodb_beaker',
     version = '0.5',
     description = 'Beaker backend to write sessions and caches to a ' +\
     'MongoDB schemaless database.',
-    long_description = '\n' + open('README.rst').read(),
+    long_description = '\n' + README,
     author='Brendan W. McAdams',
     author_email = 'bwmcadams@gmail.com',
     keywords = 'mongo mongodb beaker cache session',
